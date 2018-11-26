@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+{% if all_items %}
+    <div class="p-3 mb-2 bg-light text-dark">
+        <table class="table table-bordered">    
+        {% for things in all_items %}  
+            {% if things.completed  %}
+                <tr class="table-primary">
+                    <td><a href="{% url 'edit' things.id%}">{{ things.item }}</a></td>
+                    <td><center><a href="{% url 'undo' things.id%}"><button class="btn btn-secondary my-2 my-sm-0" type="submit">Geri Al</button></a></center></td>
+                    <td><center><a href="{% url 'delete' things.id%}"><button class="btn btn-warning my-2 my-sm-0" type="submit">Sil</button></a></center></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td><a href="{% url 'edit' things.id%}">{{ things.item }}</a></td>
+                    <td><center><a href="{% url 'done' things.id%}"><button class="btn btn-secondary my-2 my-sm-0" type="submit">Yapıldı</button></a></center></td>
+                    <td><center><a href="{% url 'delete' things.id%}"><button class="btn btn-warning my-2 my-sm-0" type="submit">Sil</button></a></center></td>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+    </div>
+{% endif %}
+
+{% endblock %}
