@@ -1,7 +1,7 @@
 # Todo
 Simple Todo List App
 
-pip install djongo
+pip install django
 
 Should enter database name in settings.py
 like this;
