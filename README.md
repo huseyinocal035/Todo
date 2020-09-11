@@ -8,7 +8,7 @@ like this;
 
 DATABASES = {
        'default': {
-           'ENGINE': 'djongo',
+           'ENGINE': 'django',
            'NAME': '<Database Name>',
        }
  }
